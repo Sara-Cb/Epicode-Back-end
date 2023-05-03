@@ -3,13 +3,13 @@ package ex2;
 public class Main {
     public static void main(String[] args) {
         Sim sim = new Sim("3331231234");
-        sim.aggiungiChiamata(new Chiamata(5, "0"));
-        sim.aggiungiChiamata(new Chiamata(6, "1"));
-        sim.aggiungiChiamata(new Chiamata(5, "2"));
-        sim.aggiungiChiamata(new Chiamata(1, "3"));
-        sim.aggiungiChiamata(new Chiamata(2, "4"));
-        sim.aggiungiChiamata(new Chiamata(3, "5"));
-        sim.aggiungiChiamata(new Chiamata(4, "6"));
+        sim.ricaricaSim(12.50);
+        sim.aggiungiChiamata("3331231111", 5);
+        sim.aggiungiChiamata("3331232222", 6);
+        sim.aggiungiChiamata("3331233333", 5);
+        sim.aggiungiChiamata("3331234444", 1);
+        sim.aggiungiChiamata("3331235555", 2);
+        sim.aggiungiChiamata("3331236666", 3);
         sim.stampa();
     }
 }

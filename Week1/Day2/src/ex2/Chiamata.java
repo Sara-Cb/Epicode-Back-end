@@ -1,12 +1,12 @@
 package ex2;
 
 public class Chiamata {
-	private String numeroChiamato;
-    private int minuti;
+	public String numeroChiamato;
+    public int minuti;
 
-    public Chiamata(double minuti, String numeroChiamato) {
+    public Chiamata(String numeroChiamato, int minuti) {
+    	this.numeroChiamato = numeroChiamato;
         this.minuti = minuti;
-        this.numeroChiamato = numeroChiamato;
     }
 
     public void stampa() {
