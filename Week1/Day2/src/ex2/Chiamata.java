@@ -1,8 +1,8 @@
 package ex2;
 
 public class Chiamata {
-    private double minuti = 0;
-    private String numeroChiamato = "";
+	private String numeroChiamato;
+    private int minuti;
 
     public Chiamata(double minuti, String numeroChiamato) {
         this.minuti = minuti;
