@@ -1,4 +1,4 @@
-package it.epicode.lessons;
+package it;
 
 import java.util.Arrays;
 import java.util.Scanner;
