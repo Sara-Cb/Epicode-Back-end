@@ -1,4 +1,4 @@
-package Esercizio2;
+package exercise2;
 
 public class CartaSIM {
 	

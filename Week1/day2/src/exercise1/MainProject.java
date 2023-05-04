@@ -1,18 +1,5 @@
-package Esercizio1;
+package exercise1;
 
-/*
-Esercizio #1
-Creare una classe Rettangolo che permetta di rappresentare dei 
-rettangoli. Per ogni rettangolo deve essere possibile specificare 
-altezza e larghezza in fase di costruzione dell'istanza e 
-devono essere realizzati i metodi per calcolare perimetro ed area. 
-Realizzare una funzione stampaRettangolo che, dato un rettangolo, 
-stampi a video area e perimetro. 
-Realizzare una funzione stampaDueRettangoli che, dati due rettangoli, 
-stampi area e perimetro di ognuno e quindi la somma delle aree e dei perimetri.
-Scrivere un main che utilizzi tutte queste funzioni. 
-
-*/
 
 public class MainProject {
 

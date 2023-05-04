@@ -1,4 +1,4 @@
-package Esercizio1;
+package exercise1;
 
 public class Rettangolo {
 	
