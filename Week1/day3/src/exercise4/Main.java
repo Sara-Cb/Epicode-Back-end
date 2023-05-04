@@ -11,5 +11,7 @@ public class Main {
 		
 		System.out.println("Conto alla rovescia: ");
 		System.out.println(Countdown.Capodanno(numero));
+		
+		number.close();
 	}
 }

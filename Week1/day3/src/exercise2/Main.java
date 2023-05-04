@@ -10,6 +10,8 @@ public class Main {
 		int sceltaNumero = n.nextInt();
 		
 		System.out.println(zeroToThree.checkNumber(sceltaNumero));
+		
+		n.close();
 	}
 }
 	

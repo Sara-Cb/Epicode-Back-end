@@ -1,10 +1,9 @@
 package exercise1;
 
 
-public class MainProject {
+public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Rettangolo r1 = new Rettangolo(10, 25);
 		Rettangolo r2 = new Rettangolo(25, 8);
 		

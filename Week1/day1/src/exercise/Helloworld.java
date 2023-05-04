@@ -26,6 +26,7 @@ System.out.print("Inserisci qualcosa tre:");
 String stringaTre = sc.nextLine();
 System.out.println(stringaUno + ' ' + stringaDue + ' ' + stringaTre);
 System.out.println(stringaTre + ' ' + stringaDue + ' ' + stringaUno);
+sc.close();
 }
 
 //Esercizio #2
