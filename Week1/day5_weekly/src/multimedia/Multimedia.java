@@ -1,10 +1,15 @@
 package multimedia;
 
-public class Multimedia {
+public abstract class Multimedia {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public String title;
 
+	public Multimedia (String title) {
+		this.title = title;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Multimedia element: " + title;
+	}
 }
