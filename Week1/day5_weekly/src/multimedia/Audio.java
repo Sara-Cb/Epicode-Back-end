@@ -5,15 +5,15 @@ public class Audio extends Multimedia implements volume  {
 	private int duration = 1;
 	protected int volume = 1;
 
+	public Audio(String title) {
+		super(title, "audio");
+	}
+
 	public Audio(String title, int duration) {
-		super(title);
+		super(title, "audio");
 		this.setDuration(duration);
 	}
 	
-	public Audio(String title) {
-		super(title);
-	}
-
 	public int getDuration() {
 		return duration;
 	}
@@ -33,11 +33,7 @@ public class Audio extends Multimedia implements volume  {
 	}
 	
 	@Override
-	public String toString() {
-		return "Audio track: " + this.title;
-	}
-	
-	public void playAudio() {
+	public void play() {
 		int v = this.volume;
 		int d = this.getDuration();
 		String vol = "Volume: ";

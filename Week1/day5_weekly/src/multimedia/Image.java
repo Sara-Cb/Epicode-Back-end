@@ -4,15 +4,15 @@ public class Image extends Multimedia implements lighting {
 	
 	protected int light = 1;
 	
+	public Image(String title) {
+		super(title, "image");
+	}
+	
 	public Image(String title, int light) {
-		super(title);
+		super(title, "image");
 		this.light = light;
 	}
 	
-	public Image(String title) {
-		super(title);
-	}
-
 	@Override
 	public void lightingUp(int n) {
 		this.light += n;
@@ -24,11 +24,7 @@ public class Image extends Multimedia implements lighting {
 	}
 	
 	@Override
-	public String toString() {
-		return "Image file: " + this.title;
-	}
-	
-	public void showImage() {
+	public void play() {
 		int l = this.light;
 		String light = "Brightness: ";
 		

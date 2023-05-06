@@ -7,12 +7,12 @@ public class Video extends Multimedia implements volume, lighting {
 	protected int light = 1;
 
 	public Video(String title) {
-		super(title);
+		super(title, "video");
 		this.title = title;
 	}
 	
 	public Video(String title, int duration) {
-		super(title);
+		super(title, "video");
 		this.title = title;
 		this.setDuration(duration);
 	}
@@ -46,11 +46,7 @@ public class Video extends Multimedia implements volume, lighting {
 	}
 	
 	@Override
-	public String toString() {
-		return "Video clip: " + this.title;
-	}
-	
-	public void playVideo() {
+	public void play() {
 		int v = this.volume;
 		int d = this.getDuration();
 		String vol = "Volume: ";
