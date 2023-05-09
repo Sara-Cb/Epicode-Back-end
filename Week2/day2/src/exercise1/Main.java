@@ -24,6 +24,7 @@ public class Main {
         System.out.println("Parole duplicate: " + paroleDuplicate);
         System.out.println("Numero di parole distinte: " + parole.size());
         System.out.println("Elenco delle parole distinte: " + parole);
+        scan.close();
     }
 }
 
