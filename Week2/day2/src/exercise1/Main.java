@@ -1,6 +1,10 @@
 package exercise1;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.HashSet;
+
+
 
 public class Main {
     public static void main(String[] args) {
