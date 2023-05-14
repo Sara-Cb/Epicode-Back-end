@@ -30,9 +30,16 @@ public class RubricaTelefonica {
         return this.rubrica.get(nome);
     }
 
+//    public void stampaContatti() {
+//        for (Map.Entry<String, String> entry : this.rubrica.entrySet()) {
+//            System.out.println(entry.getKey() + ": " + entry.getValue());
+//        }
+//    }
+
     public void stampaContatti() {
-        for (Map.Entry<String, String> entry : this.rubrica.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+    	
+      for (Map.Entry<String, String> entry : this.rubrica.entrySet()) {
+          System.out.println(entry.getKey() + ": " + entry.getValue());
     }
+  }
 }
