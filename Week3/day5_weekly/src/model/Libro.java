@@ -1,16 +1,13 @@
 package model;
 
-import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "libri")
+@DiscriminatorValue("Libro")
 public class Libro extends Lettura {
-    @Column(name = "autore")
+	
     private String autore;
-
-    @Column(name = "genere")
     private String genere;
 
     public Libro(String isbn, String titolo, int anno, int pag, String autore, String genere) {

@@ -4,15 +4,14 @@ import utils.Frequenza;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "riviste")
+@DiscriminatorValue("Rivista")
 public class Rivista extends Lettura {
     @Enumerated(EnumType.STRING)
-    @Column(name = "periodo")
-    private Frequenza periodo;
+    private Frequenza periodicità;
 
     public Rivista(String isbn, String titolo, int anno, int pag, Frequenza periodo) {
         super(isbn, titolo, anno, pag);
-        this.periodo = periodo;
+        this.periodicità = periodo;
     }
 
     public Rivista() {
@@ -20,15 +19,15 @@ public class Rivista extends Lettura {
     }
 
     public Frequenza getPeriodo() {
-        return periodo;
+        return periodicità;
     }
 
     public void setPeriodo(Frequenza periodo) {
-        this.periodo = periodo;
+        this.periodicità = periodo;
     }
 
     @Override
     public String toString() {
-        return "Magazine [ISBN=" + getISBN() + ", titolo=" + getTitolo() + ", anno=" + getAnno() + ", pagineN=" + getPagineN() + ", periodo=" + periodo + "]";
+        return "Magazine [ISBN=" + getISBN() + ", titolo=" + getTitolo() + ", anno=" + getAnno() + ", pagineN=" + getPagineN() + ", periodo=" + periodicità + "]";
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -13,20 +14,21 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "letture")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name="catalogo")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_lettura")
 public abstract class Lettura {
     @Id
-    @Column(name = "ISBN")
+    @Column(name = "codice_ISBN")
     private String ISBN;
 
     @Column(name = "titolo")
     private String titolo;
 
-    @Column(name = "anno")
+    @Column(name = "anno_pubblicazione")
     private int anno;
 
-    @Column(name = "pagineN")
+    @Column(name = "numero_pagine")
     private int pagineN;
     
     @OneToMany(mappedBy = "lettura", cascade = CascadeType.ALL, orphanRemoval = true)
