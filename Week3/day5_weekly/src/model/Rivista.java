@@ -7,6 +7,7 @@ import javax.persistence.*;
 @DiscriminatorValue("Rivista")
 public class Rivista extends Lettura {
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Frequenza periodicità;
 
     public Rivista(String isbn, String titolo, int anno, int pag, Frequenza periodo) {

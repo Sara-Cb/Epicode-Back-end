@@ -20,13 +20,13 @@ public class Utente {
     @Column(name = "numero_tessera")
     private Integer nTessera;
 
-    @Column(name = "nome")
+	@Column(nullable = false)
     private String nome;
 
-    @Column(name = "cognome")
-    private String cognome;
+	@Column(nullable = false)
+	private String cognome;
 
-    @Column(name = "data_nascita")
+    @Column(name = "data_nascita", nullable = false)
     private LocalDate dataNascita;
     
     @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)

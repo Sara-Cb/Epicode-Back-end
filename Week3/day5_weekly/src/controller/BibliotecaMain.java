@@ -1,7 +1,6 @@
 package controller;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 import utils.JpaUtil;
 
@@ -9,16 +8,16 @@ import utils.JpaUtil;
 
 public class BibliotecaMain {
 	
-    static EntityManagerFactory emf = JpaUtil.getEntityManagerFactory();
-    static EntityManager em = emf.createEntityManager();
+    static EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 
 	public static void main(String[] args) {
-
-        
-        em.getTransaction().begin();
-        em.getTransaction().commit();
-
-        em.close();
-        emf.close();
+       
+//        em.getTransaction().begin();
+//        em.getTransaction().commit();
+//
+//        em.close();
+		
+		
+		
 	}
 }
