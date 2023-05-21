@@ -8,31 +8,59 @@ import model.Lettura;
 import utils.JpaUtil;
 
 public class CatalogoDAO implements iCatalogoDAO {
+	
+	    @Override
+	    public void aggiungiLettura(Lettura lettura) {
+	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	        try {
+	            em.getTransaction().begin();
+	            em.persist(lettura);
+	            em.getTransaction().commit();
+	            System.out.println("Hai aggiunto una lettura all'Archivio!");
+	        } catch (Exception e) {
+	            em.getTransaction().rollback();
+	            System.out.println("Errore su salvataggio!!");
+	        } finally {
+	            em.close();
+	        }
+	    }
 
-    static EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-
-
-    @Override
-    public Lettura cercaLetturaPerISBN(String isbn) {
-        TypedQuery<Lettura> query = em.createNamedQuery("Lettura.findByISBN", Lettura.class);
-        query.setParameter("isbn", isbn);
-        try {
-            return query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-    
-    @Override
-    public void aggiungiLettura(Lettura lettura) {
-        em.persist(lettura);
-    }
-
-    @Override
-    public void rimuoviLettura(String isbn) {
-        Lettura lettura = cercaLetturaPerISBN(isbn);
-        if (lettura != null) {
-            em.remove(lettura);
-        }
-    }
+	    @Override
+	    public void rimuoviLettura(Lettura lettura) {
+	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	        try {
+	            Lettura esiste = cercaLetturaPerISBN(lettura.getISBN());
+	            if (esiste != null) {
+	                em.getTransaction().begin();
+	                em.remove(lettura);
+	                em.getTransaction().commit();
+	                System.out.println("Hai rimosso una lettura dall'Archivio!");
+	            } else {
+	                System.out.println("Codice ISBN non presente!");
+	            }
+	        } catch (Exception e) {
+	            em.getTransaction().rollback();
+	            System.out.println("Errore su rimozione!!");
+	        } finally {
+	            em.close();
+	        }
+	    }
+	    
+	    @Override
+	    public Lettura cercaLetturaPerISBN(String isbn) {
+	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	        TypedQuery<Lettura> query = em.createNamedQuery("Lettura.findByISBN", Lettura.class);
+	        query.setParameter("isbn", isbn);
+	        try {
+	        	Lettura result = query.getSingleResult();
+	            System.out.println(result.toString());
+	            return result;
+	        } catch (NoResultException e) {
+                System.out.println("Codice ISBN non presente!");
+	            return null;
+	        } finally {
+	            em.close();
+	    }
+	}    
 }
+

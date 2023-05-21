@@ -12,53 +12,72 @@ import java.util.List;
 
 public class RicercaDAO implements iRicercaDAO {
 
-    static EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-
     @Override
     public List<Lettura> cercaLetturaPerAnnoPubblicazione(int anno) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Lettura> query = em.createNamedQuery("Lettura.findByAnnoPubblicazione", Lettura.class);
         query.setParameter("anno", anno);
-        return query.getResultList();
+        List<Lettura> result = query.getResultList();
+        em.close();
+        return result;
     }
 
     @Override
     public List<Lettura> cercaLetturaPerAutore(String autore) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Lettura> query = em.createNamedQuery("Lettura.findByAutore", Lettura.class);
         query.setParameter("autore", autore);
-        return query.getResultList();
+        List<Lettura> result = query.getResultList();
+        em.close();
+        return result;
     }
 
     @Override
     public List<Lettura> cercaLetturaPerTitolo(String titolo) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Lettura> query = em.createNamedQuery("Lettura.findByTitolo", Lettura.class);
         query.setParameter("titolo", "%" + titolo + "%");
-        return query.getResultList();
+        List<Lettura> result = query.getResultList();
+        em.close();
+        return result;
     }
 
     @Override
     public List<Prestito> cercaPrestitiInCorso() {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findInCorso", Prestito.class);
-        return query.getResultList();
+        List<Prestito> result = query.getResultList();
+        em.close();
+        return result;
     }
 
     @Override
     public List<Prestito> cercaPrestitiPerUtente(String nTessera) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findByUtente", Prestito.class);
         query.setParameter("nTessera", nTessera);
-        return query.getResultList();
+        List<Prestito> result = query.getResultList();
+        em.close();
+        return result;
     }
 
     @Override
     public List<Prestito> cercaPrestitiPerLettura(Lettura lettura) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findByLettura", Prestito.class);
         query.setParameter("lettura", lettura);
-        return query.getResultList();
+        List<Prestito> result = query.getResultList();
+        em.close();
+        return result;
     }
 
     @Override
     public List<Prestito> cercaPrestitiScadutiNonRestituiti() {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         TypedQuery<Prestito> query = em.createNamedQuery("Prestito.findScadutiNonRestituiti", Prestito.class);
         query.setParameter("currentdate", LocalDate.now());
-        return query.getResultList();
+        List<Prestito> result = query.getResultList();
+        em.close();
+        return result;
     }
 }

@@ -43,10 +43,9 @@ public class Prestito {
     @Column(name = "data_restituzione_effettiva")
     private LocalDate dataRestituzioneEffettiva;
 
-	public Prestito(Long id, Lettura lettura, Utente utente, LocalDate dataInizioPrestito,
+	public Prestito(Lettura lettura, Utente utente, LocalDate dataInizioPrestito,
 			LocalDate dataRestituzioneEffettiva) {
 		super();
-		this.id = id;
 		this.lettura = lettura;
 		this.utente = utente;
 		this.dataInizioPrestito = dataInizioPrestito;
@@ -54,9 +53,8 @@ public class Prestito {
 		this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
 	}
 
-	public Prestito(Long id, Lettura lettura, Utente utente, LocalDate dataInizioPrestito) {
+	public Prestito(Lettura lettura, Utente utente, LocalDate dataInizioPrestito) {
 		super();
-		this.id = id;
 		this.lettura = lettura;
 		this.utente = utente;
 		this.dataInizioPrestito = dataInizioPrestito;
