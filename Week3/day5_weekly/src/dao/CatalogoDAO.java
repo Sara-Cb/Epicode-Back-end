@@ -2,6 +2,7 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import model.Lettura;
@@ -26,16 +27,25 @@ public class CatalogoDAO implements iCatalogoDAO {
 	    }
 
 	    @Override
-	    public void rimuoviLettura(Lettura lettura) {
+	    public void rimuoviLettura(String isbn) {
 	        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 	        try {
-	            Lettura esiste = cercaLetturaPerISBN(lettura.getISBN());
-	            if (esiste != null) {
+	            Lettura lettura = cercaLetturaPerISBN(isbn);
+	            if (lettura != null) {
+	            	Query query = em.createQuery("SELECT COUNT(p) FROM Prestito p WHERE p.libro.ISBN = :isbn AND p.dataRestituzione IS NULL");
+	                query.setParameter("isbn", isbn);
+	                Long count = (Long) query.getSingleResult();
+	                
+	                if (count > 0) {
+	                    System.out.println("Non puoi eliminare questo libro perché è in prestito!");
+	                } else {
 	                em.getTransaction().begin();
-	                em.remove(lettura);
+	                Query q = em.createNamedQuery("Lettura.removeFromCatalog");
+	                q.setParameter("isbn", isbn);
+	                q.executeUpdate();
 	                em.getTransaction().commit();
 	                System.out.println("Hai rimosso una lettura dall'Archivio!");
-	            } else {
+	            }} else {
 	                System.out.println("Codice ISBN non presente!");
 	            }
 	        } catch (Exception e) {
@@ -45,6 +55,8 @@ public class CatalogoDAO implements iCatalogoDAO {
 	            em.close();
 	        }
 	    }
+	    
+	    
 	    
 	    @Override
 	    public Lettura cercaLetturaPerISBN(String isbn) {

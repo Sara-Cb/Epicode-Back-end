@@ -50,7 +50,7 @@ public class BibliotecaMain {
         
         String isbn = "1234";
         Lettura letturaISBN = catalogoDAO.cercaLetturaPerISBN(isbn);
-        // catalogoDAO.rimuoviLettura(letturaISBN);
+        catalogoDAO.rimuoviLettura(letturaISBN.getISBN());
         int annoPubblicazione = 2000;
         List<Lettura> lettureAnno = ricercaDAO.cercaLetturaPerAnnoPubblicazione(annoPubblicazione);
         
