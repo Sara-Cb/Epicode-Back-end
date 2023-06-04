@@ -19,24 +19,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="prenotazioni")
+@Table(name = "prenotazioni")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 public class Prenotazione {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Utente utente;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Postazione postazione;
 	private LocalDate giornoPrenotazione;
 	private LocalDate scadenzaPrenotazione;
-	
 
 	public Prenotazione(Utente utente, Postazione postazione, LocalDate giornoPrenotazione) {
 		super();
@@ -45,12 +44,11 @@ public class Prenotazione {
 		this.giornoPrenotazione = giornoPrenotazione;
 		this.scadenzaPrenotazione = giornoPrenotazione.plusDays(1);
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Prenotazione [id=" + id + ", utente=" + utente + ", giornoPrenotazione=" + giornoPrenotazione
-				+ ", scadenzaPrenotazione=" + scadenzaPrenotazione +  "]";
+				+ ", scadenzaPrenotazione=" + scadenzaPrenotazione + "]";
 	}
-	
-	
+
 }

@@ -12,13 +12,12 @@ import com.github.javafaker.Faker;
 @Configuration
 public class EdificioConfiguration {
 
-	
-	@Bean(name="edificioBean")
+	@Bean(name = "edificioBean")
 	@Scope("prototype")
 	public Edificio edificio() {
 		Faker fake = Faker.instance(new Locale("it-IT"));
 		Edificio edificioFake = new Edificio();
-		
+
 		edificioFake.setCitta(fake.address().city());
 		edificioFake.setIndirizzo(fake.address().streetAddress());
 		edificioFake.setNome(fake.ancient().titan());

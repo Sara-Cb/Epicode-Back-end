@@ -13,11 +13,10 @@ import com.GestionePrenotazioni.Project.model.Utente;
 @Configuration
 public class PrenotazioneConfiguration {
 
-		@Bean(name="prenotazioneBean")
-		@Scope("prototype")
-		public Prenotazione prenotazione(Utente utente,Postazione postazione,LocalDate dataPrenotazione) {
-			return new Prenotazione(utente,postazione,dataPrenotazione);
-		}
-		
-		
+	@Bean(name = "prenotazioneBean")
+	@Scope("prototype")
+	public Prenotazione prenotazione(Utente utente, Postazione postazione, LocalDate dataPrenotazione) {
+		return new Prenotazione(utente, postazione, dataPrenotazione);
+	}
+
 }

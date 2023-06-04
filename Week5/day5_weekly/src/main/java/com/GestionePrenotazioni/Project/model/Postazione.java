@@ -23,25 +23,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name= "postazioni")
+@Table(name = "postazioni")
 public class Postazione {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String descrizione;
 	@Enumerated(EnumType.STRING)
 	private TipoPostazione tipo;
-	
+
 	@ManyToOne
 	private Edificio edificio;
 	@Column(nullable = false)
 	private Integer numMaxPostazioni;
 
-	
-	
-	
 	public Postazione(String descrizione, TipoPostazione tipo, Edificio edificio, Integer numMaxPostazioni) {
 		super();
 		this.descrizione = descrizione;
@@ -50,14 +47,10 @@ public class Postazione {
 		this.numMaxPostazioni = numMaxPostazioni;
 	}
 
-
-
-
 	@Override
 	public String toString() {
 		return "Postazione [id=" + id + ", descrizione=" + descrizione + ", tipo=" + tipo + ", numMaxPostazioni="
 				+ numMaxPostazioni + "]";
 	}
-	
-	
+
 }

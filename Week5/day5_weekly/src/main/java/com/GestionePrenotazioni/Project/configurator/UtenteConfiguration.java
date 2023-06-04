@@ -12,20 +12,23 @@ import com.github.javafaker.Faker;
 
 @Configuration
 public class UtenteConfiguration {
-	
-	@Value ("${user.admin.name}") private String adminName;
-	@Value ("${user.admin.lastname}") private String adminLastName;
-	@Value ("${user.admin.email}") private String adminEmail;
-	@Value ("${user.admin.username}") private String adminUserName;
-	
-	
-	@Bean(name ="adminUserBean")
+
+	@Value("${user.admin.name}")
+	private String adminName;
+	@Value("${user.admin.lastname}")
+	private String adminLastName;
+	@Value("${user.admin.email}")
+	private String adminEmail;
+	@Value("${user.admin.username}")
+	private String adminUserName;
+
+	@Bean(name = "adminUserBean")
 	@Scope("singleton")
 	public Utente adminUtente() {
-		return new Utente (adminUserName,adminName,adminLastName,adminEmail);
+		return new Utente(adminUserName, adminName, adminLastName, adminEmail);
 	}
-	
-	@Bean(name ="fakeUserBean")
+
+	@Bean(name = "fakeUserBean")
 	@Scope("prototype")
 	public Utente fakeUtente() {
 		Faker fake = Faker.instance(new Locale("it-IT"));
@@ -34,15 +37,15 @@ public class UtenteConfiguration {
 		utenteFake.setCognome(fake.name().lastName());
 		utenteFake.setEmail(fake.internet().emailAddress());
 		utenteFake.setUserName(fake.name().username());
-		
+
 		return utenteFake;
 	}
-	@Bean(name="customUserBean")
+
+	@Bean(name = "customUserBean")
 	@Scope("prototype")
 	public Utente customUtente() {
-		
-		
+
 		return new Utente();
 	}
-	
+
 }

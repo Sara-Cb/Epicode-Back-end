@@ -22,15 +22,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="utenti")
+@Table(name = "utenti")
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 public class Utente {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -42,9 +41,9 @@ public class Utente {
 	private String cognome;
 	@Column(unique = true, nullable = false)
 	private String email;
-	
+
 	@ManyToMany(targetEntity = Prenotazione.class, fetch = FetchType.EAGER)
-	@JoinTable(name="prenotazioni_lista_utenti",joinColumns =   	@JoinColumn(name="utente_id"),inverseJoinColumns = @JoinColumn(name="prenotazione_id"))
+	@JoinTable(name = "prenotazioni_lista_utenti", joinColumns = @JoinColumn(name = "utente_id"), inverseJoinColumns = @JoinColumn(name = "prenotazione_id"))
 	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
 
 	public Utente(String userName, String nome, String cognome, String email) {
@@ -53,9 +52,7 @@ public class Utente {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
-		
+
 	}
-	
-	
-	
+
 }
