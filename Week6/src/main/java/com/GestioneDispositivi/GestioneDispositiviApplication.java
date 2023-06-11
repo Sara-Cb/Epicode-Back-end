@@ -9,5 +9,4 @@ public class GestioneDispositiviApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GestioneDispositiviApplication.class, args);
 	}
-
 }

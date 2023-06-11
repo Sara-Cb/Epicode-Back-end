@@ -29,7 +29,7 @@ public ResponseEntity<List<Dispositivo>> getAllDispositivi (){
 
 @GetMapping("/id")
 public ResponseEntity<Dispositivo> getDispositoid (Long id){
-	return new ResponseEntity<Dispositivo>(dservice.getDispositvoid(id),HttpStatus.OK); 
+	return new ResponseEntity<Dispositivo>(dservice.getDispositivo(id),HttpStatus.OK); 
 		
 }
 

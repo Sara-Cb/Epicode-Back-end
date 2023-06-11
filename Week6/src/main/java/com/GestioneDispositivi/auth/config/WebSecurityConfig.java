@@ -18,6 +18,7 @@ import com.GestioneDispositivi.auth.AuthEntryPointJwt;
 import com.GestioneDispositivi.auth.AuthTokenFilter;
 import com.GestioneDispositivi.auth.users.UserDetailsServiceImpl;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
