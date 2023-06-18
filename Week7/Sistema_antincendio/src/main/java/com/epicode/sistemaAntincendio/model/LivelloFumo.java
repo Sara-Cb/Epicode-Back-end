@@ -1,7 +1,7 @@
-package com.epicode.sensoriAntincendio.model;
+package com.epicode.sistemaAntincendio.model;
 
 public enum LivelloFumo {
-
+	LIVELLO_ZERO,
 	LIVELLO_UNO,
 	LIVELLO_DUE,
 	LIVELLO_TRE,

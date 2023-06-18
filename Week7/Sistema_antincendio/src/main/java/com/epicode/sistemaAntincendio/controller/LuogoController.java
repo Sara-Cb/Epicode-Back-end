@@ -1,4 +1,4 @@
-package com.epicode.sensoriAntincendio.controller;
+package com.epicode.sistemaAntincendio.controller;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.epicode.sensoriAntincendio.model.Luogo;
-import com.epicode.sensoriAntincendio.repository.LuogoRepository;
+import com.epicode.sistemaAntincendio.model.Luogo;
+import com.epicode.sistemaAntincendio.repository.LuogoRepository;
 
 @Controller
 @RequestMapping("/luoghi")
@@ -28,7 +28,7 @@ public class LuogoController {
 
 	@GetMapping
 	@ResponseBody
-	public List<Luogo> getLuogo(@RequestBody Luogo luogo) {
+	public List<Luogo> getLuoghi() {
 		return luogoRepository.findAll();
 	}
 

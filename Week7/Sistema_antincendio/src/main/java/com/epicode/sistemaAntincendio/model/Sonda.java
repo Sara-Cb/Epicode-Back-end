@@ -1,17 +1,14 @@
-package com.epicode.sensoriAntincendio.model;
-
-import org.hibernate.annotations.ManyToAny;
-import org.springframework.web.bind.annotation.GetMapping;
+package com.epicode.sistemaAntincendio.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,24 +17,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "sonde")
 public class Sonda {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
+	@JoinColumn(nullable = false)
 	private Luogo luogo;
-	@Enumerated(EnumType.STRING)
-	private LivelloFumo livelloFumo = null;
 	@ManyToOne
+	@JoinColumn(nullable = false, name = "centro_controllo")
 	private CentroDiControllo centroDiControllo;
-	
-	public Sonda(Luogo luogo, LivelloFumo livelloFumo, CentroDiControllo centroDiControllo) {
+	@Enumerated(EnumType.STRING)
+	private LivelloFumo fumo;
+
+	public Sonda(Luogo luogo, CentroDiControllo centroDiControllo) {
 		super();
 		this.luogo = luogo;
-		this.livelloFumo = livelloFumo;
+		this.fumo = LivelloFumo.LIVELLO_ZERO;
 		this.centroDiControllo = centroDiControllo;
 	}
-	
-	
+
 }

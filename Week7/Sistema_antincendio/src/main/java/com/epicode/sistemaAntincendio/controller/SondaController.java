@@ -1,23 +1,31 @@
-package com.epicode.sensoriAntincendio.controller;
+package com.epicode.sistemaAntincendio.controller;
 
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.epicode.sensoriAntincendio.model.Luogo;
-import com.epicode.sensoriAntincendio.model.Sonda;
-import com.epicode.sensoriAntincendio.repository.LuogoRepository;
-import com.epicode.sensoriAntincendio.repository.SondaRepository;
+import com.epicode.sistemaAntincendio.model.Sonda;
+import com.epicode.sistemaAntincendio.repository.SondaRepository;
 
 @Controller
 @RequestMapping("/sonda")
 public class SondaController {
 
-	@Autowired
-	SondaRepository sondaRepository;
+	private final SondaRepository sondaRepository;
 
+	@Autowired
+	public SondaController(SondaRepository sondaRepository) {
+		this.sondaRepository = sondaRepository;
+	}
+
+	@GetMapping
+	@ResponseBody
+	public List<Sonda> getSonde() {
+		return sondaRepository.findAll();
+	}
+	
 	@PostMapping
 	@ResponseBody
 	public Sonda creaSonda(@RequestBody Sonda sonda) {

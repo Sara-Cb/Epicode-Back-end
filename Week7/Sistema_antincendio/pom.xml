@@ -8,11 +8,11 @@
 		<version>3.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.epicode.sensoriAntincendio</groupId>
-	<artifactId>SensoriAntincendio</artifactId>
+	<groupId>com.epicode.sistemaAntincendio</groupId>
+	<artifactId>SistemaAntincendio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringgestionePrenotazioni-1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>SpringAntincendio</name>
+	<description></description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -71,18 +71,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>build-week-1-PublicTransportDatabase</groupId>
-			<artifactId>
-				build-week-1-PublicTransportDatabase
-			</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sensori_antincendio</groupId>
-			<artifactId>sensori_antincendio</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

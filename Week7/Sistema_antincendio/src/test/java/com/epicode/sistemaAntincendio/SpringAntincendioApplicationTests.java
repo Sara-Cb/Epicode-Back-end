@@ -1,10 +1,10 @@
-package com.epicode.sensoriAntincendio;
+package com.epicode.sistemaAntincendio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringgestionePrenotazioni1ApplicationTests {
+class SpringAntincendioApplicationTests {
 
 	@Test
 	void contextLoads() {
